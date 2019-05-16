@@ -24,7 +24,9 @@ $ curl 'https://ci.example.com/go/api/admin/pipelines/my_pipeline' \
                   "auto_update": true,
                   "branch": "master",
                   "submodule_folder": null,
-                  "shallow_clone": true
+                  "shallow_clone": false,
+                  "ssh_private_key": "this_should_be_actual_content_of_generated_private_key",
+                  "ssh_passphrase": "this_is_the_passphrase_used_with_private_key"
                 }
               }
             ],
@@ -154,7 +156,9 @@ ETag: "e89135b38ddbcd9380c83eb524647bdd"
       "auto_update" : true,
       "branch" : "master",
       "submodule_folder" : null,
-      "shallow_clone" : false
+      "shallow_clone" : false,
+      "encrypted_ssh_private_key": "AES:O1+q0vUoPZ1NouiNy1pL5g==:YukPi6iwLWy5JMvSpeQ8A7lSkc9GOOnfM5++f5gC6Wg7f5AoAeqJUDc+UD2RLFfg",
+      "encrypted_ssh_passphrase": "AES:12eUPYMVzVWST7xpzIrYDQ==:FGWPbKttC13DEGu2HzZ+QJlQPCLSQBp+qVAvgCTo42aJ7AOyWB8PYDacQTeqiEvl"
     }
   } ],
   "stages" : [ {
@@ -244,7 +248,7 @@ Update pipeline config for specified pipeline name.
 <aside class="notice">
   <strong>Note:</strong>
   The update pipeline API requires that you submit the <code>If-Match</code>
-  header with the latest ETag value that is representative of the current
+  header with the latest ETag value (can be found in get pipeline config response header) that is representative of the current
   pipeline config resource.
   <br/><br/>
   This is required in order to avoid the "lost update" problem, where a client

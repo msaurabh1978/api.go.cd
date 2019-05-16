@@ -23,7 +23,9 @@ $ curl 'https://ci.example.com/go/api/admin/pipelines' \
                           "auto_update": true,
                           "branch": "master",
                           "submodule_folder": null,
-                          "shallow_clone": true
+                          "shallow_clone": false,
+                          "username": "admin",
+                          "password": "p@ssw@rd"
                         }
                       }
                     ],
@@ -154,7 +156,9 @@ Content-Type: <%= data.apis.versions.pipeline %>; charset=utf-8
       "auto_update" : true,
       "branch" : "master",
       "submodule_folder" : null,
-      "shallow_clone" : false
+      "shallow_clone" : false,
+      "username": "admin",
+      "encrypted_password": "AES:O1+q0vUoPZ1NouiNy1pL5g==:YukPi6iwLWy5JMvSpeQ8A7lSkc9GOOnfM5++f5gC6Wg7f5AoAeqJUDc+UD2RLFfg"
     }
   } ],
   "stages" : [ {
